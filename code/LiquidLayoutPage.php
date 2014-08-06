@@ -1,8 +1,8 @@
 <?php
-class LiquidLayoutPage extends SiteTree {
+class LiquidLayoutPage extends Page {
 
     private static $description = "Renders with CMS-specified Template & Layout";
-    
+
     private static $db = array(
         "TemplateFileName" => "Varchar(255)",
         "LayoutFileName" => "Varchar(255)"
@@ -73,7 +73,7 @@ class LiquidLayoutPage extends SiteTree {
 }
 
 
-class LiquidLayoutPage_Controller extends ContentController {
+class LiquidLayoutPage_Controller extends Page_Controller {
 
     public function index()
     {
