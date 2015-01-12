@@ -64,12 +64,12 @@ class LiquidLayoutPage extends Page {
 	{
 		$themeFileDir = $this->getThemeFileBase($type);
 		$fileNameList = glob($themeFileDir."*.ss");
+
 		$fileNames = array();
 		foreach($fileNameList as $fileName)
 		{
 			$fileNames[] = preg_replace("/\\.[^.\\s]{2,3}$/", "",basename($fileName));
 		}
-
 		if(count($fileNames) > 0){
 			return $fileNames;
 		}
@@ -85,13 +85,13 @@ class LiquidLayoutPage_Controller extends Page_Controller {
 		$templateFileDir = $this->getThemeFileBase("Template");
 		$layoutFileDir = $this->getThemeFileBase("Layout");
 
-		if($this->TemplateFileName && file_exists($templateFileDir.$this->TemplateFileName)) {
+		if($this->TemplateFileName && file_exists($templateFileDir.$this->TemplateFileName.'.ss')) {
 			$templateFN = $this->TemplateFileName;
 		} else {
 			$templateFN = "Page";
 		}
 
-		if($this->LayoutFileName && file_exists($layoutFileDir.$this->LayoutFileName)) {
+		if($this->LayoutFileName && file_exists($layoutFileDir.$this->LayoutFileName.'.ss')) {
 			$layoutFN = $this->LayoutFileName;
 		} else {
 			$layoutFN = "Page";
